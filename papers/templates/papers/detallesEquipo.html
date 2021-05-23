@@ -1,0 +1,81 @@
+{% extends 'papers/base.html' %}
+
+{% block content %}
+
+        <div class="mb-5">
+            <h3 style="text-align: center;">¡Tu equipo se ha guardado!</h3>
+            <br>
+            <br>
+            <div>
+                <h4>Datos del equipo</h4>
+                <br>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Código del club</th>
+                        <td>{{ context.codigo }}</td>
+                    </tr>
+                    <tr>
+                        <th>Código del equipo</th>
+                        <td>{{ context.codEquipo }}</td>
+                    </tr>
+                    <tr>
+                        <th>Nombre del equipo</th>
+                        <td>{{ context.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <th>Categoría</th>
+                        <td>{{ context.categoria }}</td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <h4>Correspondencia</h4>
+                <br>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Domicilio</th>
+                        <td>{{ context.domicilio }}</td>
+                    </tr>
+                    <tr>
+                        <th>Localidad</th>
+                        <td>{{ context.localidad }}</td>
+                    </tr>
+                    <tr>
+                        <th>Provincia</th>
+                        <td>{{ context.provincia }}</td>
+                    </tr>
+                    <tr>
+                        <th>Código Postal</th>
+                        <td>{{ context.codPostal }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ context.email }}</td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <div style="text-align: center;">
+                    <h4>Jugadores</h4>
+                    <br>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for jugador in jugadores %}
+                                <tr>
+                                    <td>{{ jugador.nombre }}</td>
+                                    <td>{{ jugador.apellidos }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

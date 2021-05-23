@@ -1,0 +1,5 @@
+CouchDB==1.1
+Django==3.2.3
+django-filter==1.0.1
+Markdown==2.6.7
+beautifulsoup4

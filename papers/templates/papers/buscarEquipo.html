@@ -1,0 +1,56 @@
+{% extends 'papers/base.html' %}
+
+{% block content %}
+
+{% if not request.POST %}    
+    <div class="mb-5">
+        <h3 style="text-align:center;">Introduce el nombre de un nuevo equipo</h3>
+        <br/>
+        <br/>
+        <div style="text-align: center;">
+            <form id="formulario" method="post" action=''>{% csrf_token %}
+                {{formulario}}
+                <input type="submit" value="Buscar">
+            </form>
+            <br>
+            <span><b>Advertencia:</b> Este proceso es lento, ya que requiere conectarse a la página de la <a href="https://www.rfaf.es/pnfg/NPortada">Real Federación Andaluza de Fútbol</a></span>
+        </div>
+    </div>
+{% else %}
+    <div class="mb-5">
+        <h3 style="text-align: center;">Selecciona tu equipo</h3>
+        <br>
+        <br>
+        <div style="text-align: center;">
+            <h4>Total de equipos encontrados: {{ resultado|length }}</h4>
+            {% if resultado %}
+                <br>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Código el club</th>
+                            <th>Nombre del equipo</th>
+                            <th>Categoría</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in context %}
+                            <tr>
+                                <td>{{ c.codigo }}</td>
+                                <td>{{ c.nombre }}</td>
+                                <td>{{ c.categoria }}</td>
+                                <td><a href="detallesEquipo/{{ c.codigo }}/{{ c.codEquipo }}/{{ c.categoriaParseada }}" target="_blank">Guardar</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <br>
+                <a href="/añadirEquipo/">Volver a intentarlo</a>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}
