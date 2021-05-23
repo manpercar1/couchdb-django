@@ -1,0 +1,32 @@
+{% extends 'principal/base.html' %}
+
+{% block content %}
+
+        <br/>
+        <h3>Mis equipos</h3>
+        <br/>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Código del equipo</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for equipo in equipos %}
+                    <tr>
+                        <td>{{ equipo.codigo }}</td>
+                        <td>{{ equipo.nombre }}</td>
+                        <td>{{ equipo.categoria }}</td>
+                        <td><a href="/equipos/{{ equipo.codigo }}">Detalles</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <br>
+        
+    {% endblock %}

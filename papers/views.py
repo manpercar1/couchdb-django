@@ -204,3 +204,9 @@ def misEquipos(request):
 
     return render(request, 'principal/misEquipos.html', {'equipos':equipos})
 
+
+def equipo(request, codEquipo):
+
+    equipo = db_equipos[codEquipo]
+
+    return render(request, "papers/miEquipo.html", {'equipo':equipo})

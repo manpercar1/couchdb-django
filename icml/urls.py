@@ -23,5 +23,7 @@ from papers import views
 urlpatterns = [
     path('', views.buscarEquipo),
     path('detallesEquipo/<int:codClub>/<int:codEquipo>/<str:categoria>', views.detallesEquipo),
-    path('<int:codEquipo>/guardar', views.guardarEquipo)
+    path('<int:codEquipo>/guardar', views.guardarEquipo),
+    path('misEquipos', views.misEquipos),
+    path('misEquipos/<int:codEquipo>', views.equipo),
 ]

@@ -1,0 +1,76 @@
+{% extends 'principal/base.html' %}
+
+{% block content %}
+
+        <div class="mb-5">
+            <h3 style="text-align: center;">{{ equipo.nombre }}</h3>
+            <br>
+            <br>
+            <div>
+                <h4>Datos del equipo</h4>
+                <br>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Código del equipo</th>
+                        <td>{{ equipo.codigo }}</td>
+                    </tr>
+                    <tr>
+                        <th>Categoría</th>
+                        <td>{{ equipo.categoria }}</td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <h4>Correspondencia</h4>
+                <br>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Domicilio</th>
+                        <td>{{ equipo.domicilio }}</td>
+                    </tr>
+                    <tr>
+                        <th>Localidad</th>
+                        <td>{{ equipo.localidad }}</td>
+                    </tr>
+                    <tr>
+                        <th>Provincia</th>
+                        <td>{{ equipo.provincia }}</td>
+                    </tr>
+                    <tr>
+                        <th>Código Postal</th>
+                        <td>{{ equipo.codigoPostal }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ equipo.email }}</td>
+                    </tr>
+                </table>
+                <br>
+                <hr>
+                <br>
+                <div style="text-align: center;">
+                    <h4>Jugadores</h4>
+                    <br>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for jugador in jugadores %}
+                                <tr>
+                                    <td>{{ jugador.nombre }}</td>
+                                    <td>{{ jugador.apellidos }}</td>
+                                    <td><a href="/{{ eq.id }}/jugadores/jugador/{{ jugador.id }}">Detalles</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
